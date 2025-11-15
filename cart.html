@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Giỏ hàng & Hoàn tất Thanh toán | HandMadeVN</title>
+    <meta name="description" content="Kiểm tra các sản phẩm đã chọn và tiến hành thanh toán đơn hàng tại HandMadeVN.">
+    <link rel="canonical" href="https://yourdomain.example/cart.html">
+    <meta name="robots" content="noindex, follow"> 
+
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-GYRR1L4S5D"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-GYRR1L4S5D');
+</script>
+</head>
+
+<body class="page-cart">
+    <header class="site-header scrolled"> 
+        <div class="container header-inner">
+            <a href="index.html" class="brand" aria-label="HandMadeVN - Trang chủ">
+                <img src="images/logo.png" alt="HandMadeVN logo" class="logo" loading="lazy" width="45" height="45"> 
+                <span class="brand-text">HandMadeVN</span>
+            </a>
+            <nav class="main-nav" role="navigation" aria-label="Main">
+                <ul>
+                    <li><a href="index.html">Trang chủ</a></li>
+                    <li><a href="products.html">Sản phẩm</a></li>
+                    <li><a href="cart.html" class="active">Giỏ hàng (<span id="nav-cart-count">0</span>)</a></li>
+                    <li><a href="admin.html">Admin</a></li>
+                </ul>
+            </nav>
+            <div class="header-actions">
+                <a href="#search" class="btn btn-primary btn-sm">Tìm kiếm</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="cart-container">
+        <div class="container">
+            <h1 class="section-heading">🛒 Giỏ hàng & Hoàn tất Thanh toán</h1>
+
+            <div class="cart-layout">
+                <section class="cart-items-section">
+                    <h2 style="font-size: 1.8rem; margin-bottom: 20px; color: var(--accent-dark);">Chi tiết Giỏ hàng</h2>
+                    <table class="cart-table" id="cart-item-table">
+                        <thead>
+                            <tr>
+                                <th style="width: 50%;">SẢN PHẨM</th>
+                                <th style="width: 15%; text-align: center;">GIÁ</th>
+                                <th style="width: 15%; text-align: center;">SỐ LƯỢNG</th>
+                                <th style="width: 15%; text-align: right;">TỔNG</th>
+                                <th style="width: 5%; text-align: center;"></th>
+                            </tr>
+                        </thead>
+                        <tbody id="cart-table-body">
+                            </tbody>
+                    </table>
+                    <div style="margin-top: 30px;">
+                        <a href="products.html" class="btn btn-outline" role="button">← Tiếp tục mua sắm</a>
+                    </div>
+                </section>
+
+                <aside class="checkout-sidebar">
+                    <div class="checkout-summary">
+                        <h2>Tóm tắt Đơn hàng</h2>
+                        <div class="summary-line">
+                            <span>Tạm tính:</span>
+                            <span id="summary-subtotal">0₫</span>
+                        </div>
+                        <div class="summary-line">
+                            <span>Phí vận chuyển:</span>
+                            <span id="summary-shipping">30.000₫</span>
+                        </div>
+                        <div class="summary-total">
+                            <span>Tổng cộng:</span>
+                            <span id="summary-total-amount">30.000₫</span>
+                        </div>
+                    </div>
+                    
+                    <div class="checkout-form">
+                        <h2>Thông tin giao hàng</h2>
+                        <form id="checkout-form">
+                            <div class="form-group">
+                                <label for="name">Họ tên người nhận *</label>
+                                <input type="text" id="name" name="name" required placeholder="Nguyễn Văn A">
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email *</label>
+                                <input type="email" id="email" name="email" required placeholder="a@example.com">
+                            </div>
+                            <div class="form-group">
+                                <label for="phone">Số điện thoại *</label>
+                                <input type="tel" id="phone" name="phone" required placeholder="090 123 4567">
+                            </div>
+                            <div class="form-group">
+                                <label for="address">Địa chỉ chi tiết *</label>
+                                <textarea id="address" name="address" required placeholder="Số nhà, tên đường, Phường/Xã, Quận/Huyện"></textarea>
+                            </div>
+                            
+                            <div class="payment-methods form-group">
+                                <h3>Chọn Phương thức thanh toán:</h3>
+                                <label style="display: block; margin-bottom: 8px;">
+                                    <input type="radio" name="payment" value="cod" required checked> Thanh toán khi nhận hàng (COD)
+                                </label>
+                                <label style="display: block;">
+                                    <input type="radio" name="payment" value="transfer" required> Chuyển khoản ngân hàng
+                                </label>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary" style="width: 100%; padding: 15px;">Xác nhận & Đặt hàng</button>
+                            <p id="checkout-message" class="error-message"></p>
+                        </form>
+                    </div>
+                </aside>
+            </div>
+        </div>
+    </main>
+    
+    <footer class="site-footer">
+        <div class="container footer-grid">
+            <div class="footer-col brand-info">
+                <a href="index.html" class="brand" style="color: var(--white); margin-bottom: 20px;">
+                    <img src="images/logo.png" alt="HandMadeVN logo" class="logo" width="45" height="45"> 
+                    <span class="brand-text">HandMadeVN</span>
+                </a>
+                <p>Nền tảng thương mại điện tử chuyên về các sản phẩm thủ công tinh xảo của Việt Nam, nơi nghệ thuật truyền thống gặp gỡ phong cách hiện đại.</p>
+                <div class="social-links">
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" aria-label="Pinterest"><i class="fab fa-pinterest"></i></a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h4>Sản phẩm</h4>
+                <ul>
+                    <li><a href="#">Gốm Sứ</a></li>
+                    <li><a href="#">Thổ Cẩm</a></li>
+                    <li><a href="#">Đồ Gỗ</a></li>
+                    <li><a href="#">Mây Tre Đan</a></li>
+                    <li><a href="#">Trang Sức</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Về chúng tôi</h4>
+                <ul>
+                    <li><a href="#">Câu chuyện</a></li>
+                    <li><a href="#">Nghệ nhân</a></li>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">Tuyển dụng</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Hỗ trợ</h4>
+                <ul>
+                    <li><a href="#">Liên hệ</a></li>
+                    <li><a href="#">Chính sách đổi trả</a></li>
+                    <li><a href="#">Chính sách vận chuyển</a></li>
+                    <li><a href="#">Điều khoản dịch vụ</a></li>
+                    <li><a href="#">Chính sách bảo mật</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2023 HandMadeVN. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+    <script src="js/cart.js"></script> 
+</body>
+</html>

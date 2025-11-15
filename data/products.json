@@ -1,0 +1,50 @@
+[
+  {
+    "id": 1,
+    "name": "Nón lá Huế",
+    "price": 120000,
+    "region": "Huế",
+    "image": "images/nonla.jpg",
+    "description": "Nón lá Huế nhẹ, tinh xảo, biểu tượng dịu dàng của người con gái Việt."
+  },
+  {
+    "id": 2,
+    "name": "Gốm Bát Tràng",
+    "price": 250000,
+    "region": "Hà Nội",
+    "image": "images/gom_battrang.jpg",
+    "description": "Sản phẩm gốm thủ công Bát Tràng – làng nghề nổi tiếng hơn 700 năm."
+  },
+  {
+    "id": 3,
+    "name": "Cà phê Buôn Ma Thuột",
+    "price": 180000,
+    "region": "Đắk Lắk",
+    "image": "images/cafe_bmt.jpg",
+    "description": "Cà phê rang mộc nguyên chất, hương thơm đậm đà của núi rừng Tây Nguyên."
+  },
+  {
+    "id": 4,
+    "name": "Vải thổ cẩm Tây Bắc",
+    "price": 300000,
+    "region": "Lai Châu",
+    "image": "images/tho_cam.jpg",
+    "description": "Vải dệt tay truyền thống, rực rỡ sắc màu văn hóa dân tộc vùng cao."
+  },
+  {
+    "id": 5,
+    "name": "Mật ong rừng U Minh",
+    "price": 220000,
+    "region": "Cà Mau",
+    "image": "images/mat_ong_rung.jpg",
+    "description": "Mật ong tự nhiên nguyên chất, thơm ngọt dịu, giàu dưỡng chất."
+  },
+  {
+    "id": 6,
+    "name": "Nước mắm Phú Quốc",
+    "price": 150000,
+    "region": "Phú Quốc",
+    "image": "images/nuoc_mam_phu_quoc.jpg",
+    "description": "Đặc sản nổi tiếng của đảo ngọc Phú Quốc – đậm đà hương vị biển."
+  }
+]

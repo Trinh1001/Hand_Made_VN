@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trang quản trị | HandMadeVN</title>
+    <meta name="robots" content="noindex, nofollow"> 
+    <meta name="description" content="Khu vực quản trị hệ thống HandMadeVN – Quản lý sản phẩm, đơn hàng, và người dùng.">
+    <link rel="canonical" href="https://handmadevn.vn/admin.html">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-GYRR1L4S5D"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-GYRR1L4S5D');
+</script>
+    <style> 
+        /* Thêm style cho màn hình đăng nhập, đảm bảo đẹp và căn giữa */
+        .admin-main {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: var(--bg-light);
+        }
+        .login-card {
+            max-width: 400px;
+            width: 90%;
+            padding: 40px;
+            background-color: var(--white);
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            text-align: center;
+        }
+        .login-card h2 { color: var(--accent-dark); margin-bottom: 25px; }
+        .form-group { text-align: left; }
+    </style>
+</head>
+
+<body>
+    <header class="site-header scrolled hidden" id="admin-header"> 
+        <div class="container header-inner">
+            <a href="index.html" class="brand" aria-label="HandMadeVN - Trang chủ">
+                <img src="images/logo.png" alt="HandMadeVN logo" class="logo" loading="lazy" width="45" height="45"> 
+                <span class="brand-text">HandMadeVN</span>
+            </a>
+            <nav class="main-nav" role="navigation" aria-label="Main">
+                <ul>
+                    <li><a href="index.html">Trang chủ</a></li>
+                    <li><a href="products.html">Sản phẩm</a></li>
+                    <li><a href="cart.html">Giỏ hàng</a></li>
+                    <li><a href="admin.html" class="active">Admin</a></li>
+                </ul>
+            </nav>
+            <div class="header-actions">
+                <a class="btn btn-primary" href="#" id="logout-link">Đăng xuất</a> 
+            </div>
+        </div>
+    </header>
+
+    <main class="admin-main" id="login-screen">
+        <div class="container">
+            <div class="login-card">
+                <h2>🔑 Đăng nhập Quản trị</h2>
+                <form id="admin-login-form">
+                    <div class="form-group">
+                        <label for="username">Tên đăng nhập</label>
+                        <input type="text" id="username" name="username" required value="admin"> 
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Mật khẩu</label>
+                        <input type="password" id="password" name="password" required value="123456"> 
+                    </div>
+                    <button type="submit" class="btn btn-primary">Đăng nhập</button>
+                    <p id="login-message" class="error-message"></p>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <div class="admin-dashboard-container hidden" id="admin-dashboard">
+        <div class="container">
+            <h1 class="section-heading">👩‍💼 Quản trị hệ thống</h1>
+
+            <div class="admin-grid-layout"> 
+                <div class="admin-dashboard-card reveal-zoom">
+                    <h2>📦 Quản lý sản phẩm</h2>
+                    <p class="muted">Thêm, sửa, xóa hoặc cập nhật sản phẩm mới trong cửa hàng HandMadeVN.</p>
+                    <a class="btn btn-primary" href="#" onclick="handleAccess('Quản lý sản phẩm')">Truy cập</a> 
+                </div>
+
+                <div class="admin-dashboard-card reveal-zoom delay-1">
+                    <h2>🧾 Quản lý đơn hàng</h2>
+                    <p class="muted">Theo dõi đơn đặt hàng, xác nhận thanh toán và tình trạng giao hàng.</p>
+                    <a class="btn btn-primary" href="#" onclick="handleAccess('Quản lý đơn hàng')">Truy cập</a>
+                </div>
+
+                <div class="admin-dashboard-card reveal-zoom delay-2">
+                    <h2>👥 Quản lý người dùng</h2>
+                    <p class="muted">Kiểm tra thông tin khách hàng, lịch sử mua hàng và quyền truy cập.</p>
+                    <a class="btn btn-primary" href="#" onclick="handleAccess('Quản lý người dùng')">Truy cập</a>
+                </div>
+            </div>
+
+            </div>
+    </div>
+
+
+    <footer class="site-footer hidden" id="admin-footer">
+        <div class="container">
+            <p>© <span id="yearAdmin"></span> HandMadeVN. Khu vực quản trị nội bộ.</p>
+        </div>
+    </footer>
+    
+    <script src="js/script.js"></script>
+    <script src="js/admin.js"></script> 
+    <script>
+    document.getElementById('admin-login-form').addEventListener('submit', function(e) {
+        e.preventDefault(); // Ngăn form gửi đi mặc định
+
+        const username = document.getElementById('username').value;
+        const password = document.getElementById('password').value;
+
+        // Kiểm tra tài khoản đơn giản
+        if (username === 'admin' && password === '123456') {
+            // Ẩn màn hình đăng nhập, hiện dashboard
+            document.getElementById('login-screen').classList.add('hidden');
+            document.getElementById('admin-dashboard').classList.remove('hidden');
+            document.getElementById('admin-header').classList.remove('hidden');
+            document.getElementById('admin-footer').classList.remove('hidden');
+        } else {
+            document.getElementById('login-message').textContent = 'Sai tên đăng nhập hoặc mật khẩu!';
+        }
+    });
+    </script>
+</body>
+</html>
